@@ -15,7 +15,6 @@
     items: [],
     placeholder: '请选择'
   };
-
   
 ```
 
@@ -41,8 +40,8 @@ class App extends React.Component{
         text:'option3d'
       }
     ],
-    items2:ReactAntSelect.build(['simple1','simple2','simpl4']),
-    items3:ReactAntSelect.build(['simple1','simple2','simpl4'], true)
+    items2: nx.antBuildItems(['simple1','simple2','simpl4']),
+    items3: nx.antBuildItems(['simple1','simple2','simpl4'], true)
   };
 
   constructor(props){
