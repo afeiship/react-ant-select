@@ -1,6 +1,6 @@
 import './dev.scss';
 import ReactAntSelect from './main';
-
+import 'next-ant-build-items';
 /*===example start===*/
 
 // install: npm install afeiship/react-ant-select --save
@@ -22,8 +22,8 @@ class App extends React.Component{
         text:'option3d'
       }
     ],
-    items2:ReactAntSelect.build(['simple1','simple2','simpl4']),
-    items3:ReactAntSelect.build(['simple1','simple2','simpl4'], true)
+    items2: nx.antBuildItems(['simple1','simple2','simpl4']),
+    items3: nx.antBuildItems(['simple1','simple2','simpl4'], true)
   };
 
   constructor(props){

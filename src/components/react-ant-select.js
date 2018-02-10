@@ -18,18 +18,7 @@ export default class extends Component{
     items: [],
     placeholder: '请选择'
   };
-
   /*===properties end===*/
-
-  static build(inArray, inUseSelf){
-    return inArray.map((item,index)=>{
-      const value = inUseSelf ? item : index;
-      return {
-        text: item,
-        value
-      };
-    });
-  }
 
   render() {
     const { className, items, ...props } = this.props;
