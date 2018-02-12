@@ -11,15 +11,15 @@ class App extends React.Component{
     items:[
       {
         value:'op1',
-        text:'option1d'
+        label:'option1d'
       },
       {
         value:'op2',
-        text:'option2d'
+        label:'option2d'
       },
       {
         value:'op3',
-        text:'option3d'
+        label:'option3d'
       }
     ],
     items2: nx.antBuildItems(['simple1','simple2','simpl4']),

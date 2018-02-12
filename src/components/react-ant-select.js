@@ -27,7 +27,7 @@ export default class extends Component{
         {
           (items.length > 0) && items.map((item, key) => {
             return (
-              <Select.Option key={item.value} value={item.value}>{ item.text }</Select.Option>
+              <Select.Option key={item.value} value={item.value}>{ item.label }</Select.Option>
             );
           })
         }
