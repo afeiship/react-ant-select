@@ -12,6 +12,7 @@ export default class extends Component{
     className: PropTypes.string,
     placeholder: PropTypes.string,
     items: PropTypes.array,
+    template: PropTypes.func,
   };
 
   static defaultProps = {
@@ -21,12 +22,12 @@ export default class extends Component{
   /*===properties end===*/
 
   render() {
-    const { className, items, ...props } = this.props;
+    const { className, items, template, ...props } = this.props;
     return (
       <Select {...props} className={classNames('react-ant-select',className)}>
         {
-          (items.length > 0) && items.map((item, key) => {
-            return (
+          (items.length > 0) && items.map((item, index) => {
+            return template ? template(item, index) : (
               <Select.Option key={item.value} value={item.value}>{ item.label }</Select.Option>
             );
           })
