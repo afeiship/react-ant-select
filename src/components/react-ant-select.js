@@ -26,7 +26,7 @@ export default class extends Component{
     return (
       <Select {...props} className={classNames('react-ant-select',className)}>
         {
-          (items.length > 0) && items.map((item, index) => {
+          (items.length >= 0) && items.map((item, index) => {
             return template ? template(item, index) : (
               <Select.Option key={item.value} value={item.value}>{ item.label }</Select.Option>
             );
