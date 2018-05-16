@@ -10,11 +10,13 @@
     placeholder: PropTypes.string,
     items: PropTypes.array,
     template: PropTypes.func,
+    onChange: PropTypes.func,
   };
 
   static defaultProps = {
     items: [],
-    placeholder: '请选择'
+    placeholder: '请选择',
+    onChange: noop
   };
   
 ```
@@ -63,15 +65,15 @@ class App extends React.Component{
   render(){
     return (
       <div className="hello-react-ant-select">
-        <p>
+        <div>
           <ReactAntSelect onChange={this._onChange1} style={{ width:200}} items={this.state.items} ref='rc' />
-        </p>
-        <p>
+        </div>
+        <div>
           <ReactAntSelect onChange={this._onChange2} style={{ width:200}} items={ this.state.items2  } ref='rc2' />
-        </p>
-        <p>
+        </div>
+        <div>
         <ReactAntSelect onChange={this._onChange2} style={{ width:200}} items={ this.state.items3  } ref='rc3' />
-        </p>
+        </div>
     </div>
     );
   }
