@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import noop from 'noop';
 import objectAssign from 'object-assign';
 import { Select } from 'antd';
+import 'next-return-event';
 
 export default class extends Component{
   /*===properties start===*/
@@ -13,18 +14,25 @@ export default class extends Component{
     placeholder: PropTypes.string,
     items: PropTypes.array,
     template: PropTypes.func,
+    onChange: PropTypes.func,
   };
 
   static defaultProps = {
     items: [],
-    placeholder: '请选择'
+    placeholder: '请选择',
+    onChange: noop
   };
   /*===properties end===*/
+
+  _onChange = e =>{
+    const { onChange } = this.props;
+    onChange(nx.returnEventTarget(e));
+  };
 
   render() {
     const { className, items, template, ...props } = this.props;
     return (
-      <Select {...props} className={classNames('react-ant-select',className)}>
+      <Select {...props} onChange={this._onChange} className={classNames('react-ant-select',className)}>
         {
           (items.length > 0) && items.map((item, index) => {
             return template ? template(item, index) : (
