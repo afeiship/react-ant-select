@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import noop from 'noop';
 import objectAssign from 'object-assign';
 import { Select } from 'antd';
-import 'next-return-event';
+import { returnEventTarget } from 'next-return-event';
 
 export default class extends Component{
   /*===properties start===*/
@@ -26,7 +26,7 @@ export default class extends Component{
 
   _onChange = e =>{
     const { onChange } = this.props;
-    onChange(nx.returnEventTarget(e));
+    onChange(returnEventTarget(e));
   };
 
   render() {
