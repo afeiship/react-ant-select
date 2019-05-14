@@ -16,7 +16,7 @@ var externals = process.env.NODE_ENV === 'production' ? {
   'classnames': 'classnames',
   'react-dom': 'react-dom',
   'noop':'noop',
-  'next-return-event':'next-return-event',
+  'next-stub-event':'next-stub-event',
   'object-assign':'object-assign',
   'prop-types':'prop-types',
 } : {};
