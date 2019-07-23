@@ -1,2 +1,2 @@
-import ReactAntSelect from 'components/react-ant-select';
+import ReactAntSelect from './components';
 export default ReactAntSelect;

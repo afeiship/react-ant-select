@@ -1,91 +1,50 @@
 # react-ant-select
 > React ant select builder.
 
+## install
+```shell
+npm install -S afeiship/react-ant-select
+```
 
-## properties:
-```javascript
+## usage
+1. import css
+  ```scss
+  @import "~react-ant-select/style.scss";
 
-  static propTypes = {
-    className: PropTypes.string,
-    placeholder: PropTypes.string,
-    items: PropTypes.array,
-    template: PropTypes.func,
-    onChange: PropTypes.func,
-  };
-
-  static defaultProps = {
-    items: [],
-    placeholder: '请选择',
-    onChange: noop
-  };
+  // customize your styles:
+  $react-ant-select-options: ()
+  ```
+2. import js
+  ```js
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+  import ReactAntSelect from 'react-ant-select';
   
-```
-
-## usage:
-```jsx
-
-// install: npm install afeiship/react-ant-select --save
-// import : import ReactAntSelect from 'react-ant-select'
-
-class App extends React.Component{
-  state = {
-    items:[
-      {
-        value:'op1',
-        label:'option1d'
-      },
-      {
-        value:'op2',
-        label:'option2d'
-      },
-      {
-        value:'op3',
-        label:'option3d'
-      }
-    ],
-    items2: nx.antBuildItems(['simple1','simple2','simpl4']),
-    items3: nx.antBuildItems(['simple1','simple2','simpl4'], true)
-  };
-
-  constructor(props){
-    super(props);
-    window.demo = this;
-    window.refs = this.refs;
-    window.rc = this.refs.rc;
+  // your app:
+  class App extends React.Component{
+    render(){
+      return (
+        <ReactAntSelect />
+      )
+    }
   }
 
-  _onChange1 = e =>{
-    console.log(e);
-  };
+  // render to dom:
+  ReactDOM.render(<App/>, document.getElementById('app'));
+  ```
 
-  _onChange2 = e =>{
-    console.log(e);
-  };
+## documentation
+- https://afeiship.github.io/react-ant-select/
 
-  render(){
-    return (
-      <div className="hello-react-ant-select">
-        <div>
-          <ReactAntSelect onChange={this._onChange1} style={{ width:200}} items={this.state.items} ref='rc' />
-        </div>
-        <div>
-          <ReactAntSelect onChange={this._onChange2} style={{ width:200}} items={ this.state.items2  } ref='rc2' />
-        </div>
-        <div>
-        <ReactAntSelect onChange={this._onChange2} style={{ width:200}} items={ this.state.items3  } ref='rc3' />
-        </div>
-    </div>
-    );
-  }
-}
+## resouces
+- https://www.robinwieruch.de/minimal-react-webpack-babel-setup/
+- https://www.valentinog.com/blog/react-webpack-babel/
+- https://jestjs.io/docs/en/tutorial-react#snapshot-testing-with-mocks-enzyme-and-react-16
+- https://testing-library.com/docs/react-testing-library/api
 
-```
-
-## customize style:
-```scss
-// customize your exception styles:
-$react-ant-select-options:(
-);
-
-@import '~node_modules/react-ant-select/style.scss';
-```
+## todos
+- [ ] Add: semver number for every build files.
+- [ ] Add: need output css files.
+- [ ] Add: PWA support for docs.
+- [ ] Add: source.map file for dist(`you can upload for production debug`).
+- [ ] BUG: npm run dev will clean dist.
