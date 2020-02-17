@@ -7,14 +7,16 @@ import {
   loaders,
   plugins,
   externals
-} from 'webpack-lib-kits';
+} from '@feizheng/webpack-lib-kits';
 
 export default merge(baseConfig, {
   entry: inputs.build(),
-  output: outputs.build(),
+  output: outputs.build({
+    library: 'ReactAntSelect'
+  }),
   externals: externals.base({
-    antd: 'antd',
-    'next-stub-event': 'next-stub-event'
+    '@feizheng/noop': '@feizheng/noop',
+    antd: 'antd'
   }),
   plugins: [plugins.clean(), plugins.copyStyles()]
 });

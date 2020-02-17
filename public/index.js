@@ -2,7 +2,6 @@ import ReactAntSelect from '../src/main';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import './assets/style.scss';
-import 'next-ant-build-items';
 
 class App extends React.Component {
   state = {
@@ -19,53 +18,18 @@ class App extends React.Component {
         value: 'op3',
         label: 'option3d'
       }
-    ],
-    items2: nx.antBuildItems(['simple1', 'simple2', 'simpl4']),
-    items3: nx.antBuildItems(['simple1', 'simple2', 'simpl4'], true)
+    ]
   };
 
-  constructor(props) {
-    super(props);
-    window.demo = this;
-    window.refs = this.refs;
-    window.rc = this.refs.rc;
-  }
-
-  _onChange1 = (e) => {
-    console.log(e);
-  };
-
-  _onChange2 = (e) => {
-    console.log(e);
+  handleChange = (inEvent) => {
+    console.log('inEvent.target.value', inEvent.target.value);
   };
 
   render() {
+    const { items } = this.state;
     return (
-      <div className="hello-react-ant-select">
-        <div>
-          <ReactAntSelect
-            onChange={this._onChange1}
-            style={{ width: 200 }}
-            items={this.state.items}
-            ref="rc"
-          />
-        </div>
-        <div>
-          <ReactAntSelect
-            onChange={this._onChange2}
-            style={{ width: 200 }}
-            items={this.state.items2}
-            ref="rc2"
-          />
-        </div>
-        <div>
-          <ReactAntSelect
-            onChange={this._onChange2}
-            style={{ width: 200 }}
-            items={this.state.items3}
-            ref="rc3"
-          />
-        </div>
+      <div className="app-container">
+        <ReactAntSelect items={items} onChange={this.handleChange} />
       </div>
     );
   }

@@ -1,51 +1,72 @@
 import React, { Component } from 'react';
-
+import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import noop from 'noop';
+import noop from '@feizheng/noop';
 import objectAssign from 'object-assign';
 import { Select } from 'antd';
-import { stubEventTarget } from 'next-stub-event';
 
-export default class extends Component {
-  /*===properties start===*/
+const CLASS_NAME = 'react-ant-select';
+const DEFAULT_TEMPLATE = ({ item, index }) => {
+  return (
+    <Select.Option key={item.value} value={item.value}>
+      {item.label}
+    </Select.Option>
+  );
+};
+
+export default class ReactAntSelect extends Component {
+  static displayName = CLASS_NAME;
+  static version = '__VERSION__';
   static propTypes = {
+    /**
+     * The extended className for component.
+     */
     className: PropTypes.string,
+    /**
+     * Default value.
+     */
+    value: PropTypes.object,
+    /**
+     * Placeholder.
+     */
     placeholder: PropTypes.string,
+    /**
+     * The data source.
+     */
     items: PropTypes.array,
+    /**
+     * The data item template.
+     */
     template: PropTypes.func,
+    /**
+     * The change handler.
+     */
     onChange: PropTypes.func
   };
 
   static defaultProps = {
     items: [],
     placeholder: '请选择',
-    onChange: noop
+    onChange: noop,
+    template: DEFAULT_TEMPLATE
   };
-  /*===properties end===*/
 
-  _onChange = (inEvent) => {
+  handleChange = (inEvent) => {
     const { onChange } = this.props;
-    onChange(stubEventTarget(inEvent));
+    onChange({
+      target: { value: inEvent }
+    });
   };
 
   render() {
-    const { className, items, template, ...props } = this.props;
+    const { className, items, template, onChange, ...props } = this.props;
     return (
       <Select
-        {...props}
-        onChange={this._onChange}
-        className={classNames('react-ant-select', className)}>
-        {items.length > 0 &&
-          items.map((item, index) => {
-            return template ? (
-              template(item, index)
-            ) : (
-              <Select.Option key={item.value} value={item.value}>
-                {item.label}
-              </Select.Option>
-            );
-          })}
+        onChange={this.handleChange}
+        className={classNames('react-ant-select', className)}
+        {...props}>
+        {items.map((item, index) => template({ item, index }))}
       </Select>
     );
   }
