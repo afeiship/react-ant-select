@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import noop from '@feizheng/noop';
-import objectAssign from 'object-assign';
+import ReactList from '@feizheng/react-list';
 import { Select } from 'antd';
+import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 const CLASS_NAME = 'react-ant-select';
 const DEFAULT_TEMPLATE = ({ item, index }) => {
@@ -52,22 +51,23 @@ export default class ReactAntSelect extends Component {
     template: DEFAULT_TEMPLATE
   };
 
-  handleChange = (inEvent) => {
+  handleChange = (inValue) => {
     const { onChange } = this.props;
     onChange({
-      target: { value: inEvent }
+      target: { value: inValue }
     });
   };
 
   render() {
-    const { className, items, template, onChange, ...props } = this.props;
+    const { className, onChange, ...props } = this.props;
     return (
-      <Select
+      <ReactList
+        nodeName={Select}
+        data-component={CLASS_NAME}
         onChange={this.handleChange}
-        className={classNames('react-ant-select', className)}
-        {...props}>
-        {items.map((item, index) => template({ item, index }))}
-      </Select>
+        className={classNames(CLASS_NAME, className)}
+        {...props}
+      />
     );
   }
 }
