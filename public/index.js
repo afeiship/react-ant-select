@@ -1,6 +1,7 @@
-import ReactAntSelect from '../src/main';
-import ReactDOM from 'react-dom';
+import ReactDemokit from '@jswork/react-demokit';
 import React from 'react';
+import ReactDOM from 'react-dom';
+import ReactAntSelect from '../src/main';
 import './assets/style.scss';
 
 class App extends React.Component {
@@ -22,15 +23,17 @@ class App extends React.Component {
   };
 
   handleChange = (inEvent) => {
-    console.log('inEvent.target.value', inEvent.target.value);
+    console.log('value:', inEvent.target.value);
   };
-
   render() {
     const { items } = this.state;
+
     return (
-      <div className="app-container">
+      <ReactDemokit
+        className="p-3 app-container"
+        url="https://github.com/afeiship/react-ant-select">
         <ReactAntSelect items={items} onChange={this.handleChange} />
-      </div>
+      </ReactDemokit>
     );
   }
 }
