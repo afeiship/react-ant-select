@@ -43,6 +43,7 @@ npm install -S @jswork/react-ant-select
 
   class App extends React.Component {
     state = {
+      items2: ['001', '002', '003'],
       items: [
         {
           value: 'op1',
@@ -63,13 +64,14 @@ npm install -S @jswork/react-ant-select
       console.log('value:', inEvent.target.value);
     };
     render() {
-      const { items } = this.state;
+      const { items, items2 } = this.state;
 
       return (
         <ReactDemokit
           className="p-3 app-container"
           url="https://github.com/afeiship/react-ant-select">
           <ReactAntSelect items={items} onChange={this.handleChange} />
+          <ReactAntSelect items={items2} onChange={this.handleChange} />
         </ReactDemokit>
       );
     }
