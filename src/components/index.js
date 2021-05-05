@@ -7,9 +7,12 @@ import React, { Component } from 'react';
 
 const CLASS_NAME = 'react-ant-select';
 const DEFAULT_TEMPLATE = ({ item, index }) => {
+  const value = typeof item === 'object' ? item.value : item;
+  const label = typeof item === 'object' ? item.label : item;
+
   return (
-    <Select.Option key={item.value} value={item.value}>
-      {item.label}
+    <Select.Option key={value} value={value}>
+      {label}
     </Select.Option>
   );
 };
