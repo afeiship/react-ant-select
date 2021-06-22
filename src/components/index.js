@@ -6,16 +6,6 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 const CLASS_NAME = 'react-ant-select';
-const DEFAULT_TEMPLATE = ({ item, index }) => {
-  const value = typeof item === 'object' ? item.value : item;
-  const label = typeof item === 'object' ? item.label : item;
-
-  return (
-    <Select.Option key={value} value={value}>
-      {label}
-    </Select.Option>
-  );
-};
 
 export default class ReactAntSelect extends Component {
   static displayName = CLASS_NAME;
@@ -40,7 +30,7 @@ export default class ReactAntSelect extends Component {
     /**
      * The data item template.
      */
-    template: PropTypes.func,
+    template: PropTypes.func.isRequired,
     /**
      * The change handler.
      */
@@ -51,7 +41,7 @@ export default class ReactAntSelect extends Component {
     items: [],
     placeholder: '请选择',
     onChange: noop,
-    template: DEFAULT_TEMPLATE
+    template: noop
   };
 
   handleChange = (inValue) => {
