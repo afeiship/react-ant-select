@@ -30,6 +30,17 @@ __GENERATE_DOCS__
 __GENERATE_DAPP__
   ```
 
+## tempalte migrate
+```jsx
+import ReactAntSelect from '@jswork/react-ant-select';
+import RctplAntSelectDefault from '@jswork/rctpl-ant-select-default';
+
+Object.assign(
+  ReactAntSelect.defaultProps, 
+  { template: RctplAntSelectDefault }
+);
+```
+
 ## documentation
 - https://afeiship.github.io/react-ant-select/
 
