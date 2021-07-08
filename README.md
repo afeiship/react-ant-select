@@ -18,7 +18,7 @@ npm install -S @jswork/react-ant-select
 | value       | object | false    | -        | Default value.                        |
 | placeholder | string | false    | '请选择' | Placeholder.                          |
 | items       | array  | false    | []       | The data source.                      |
-| template    | func   | false    | -        | The data item template.               |
+| template    | func   | false    | noop     | The data item template.               |
 | onChange    | func   | false    | noop     | The change handler.                   |
 
 
@@ -39,6 +39,7 @@ npm install -S @jswork/react-ant-select
   import React from 'react';
   import ReactDOM from 'react-dom';
   import ReactAntSelect from '@jswork/react-ant-select';
+  import Tpl1 from '@jswork/rctpl-ant-select-default';
   import './assets/style.scss';
 
   class App extends React.Component {
@@ -63,6 +64,7 @@ npm install -S @jswork/react-ant-select
     handleChange = (inEvent) => {
       console.log('value:', inEvent.target.value);
     };
+
     render() {
       const { items, items2 } = this.state;
 
@@ -70,8 +72,19 @@ npm install -S @jswork/react-ant-select
         <ReactDemokit
           className="p-3 app-container"
           url="https://github.com/afeiship/react-ant-select">
-          <ReactAntSelect items={items} onChange={this.handleChange} />
-          <ReactAntSelect items={items2} onChange={this.handleChange} />
+          <h1>Has value:</h1>
+          <ReactAntSelect
+            template={Tpl1}
+            items={items}
+            onChange={this.handleChange}
+          />
+          <ReactAntSelect
+            template={Tpl1}
+            items={items2}
+            onChange={this.handleChange}
+          />
+          <h1>Select is empty</h1>
+          <ReactAntSelect items={[]} onChange={this.handleChange} />
         </ReactDemokit>
       );
     }
@@ -80,6 +93,17 @@ npm install -S @jswork/react-ant-select
   ReactDOM.render(<App />, document.getElementById('app'));
 
   ```
+
+## tempalte migrate
+```jsx
+import ReactAntSelect from '@jswork/react-ant-select';
+import RctplAntSelectDefault from '@jswork/rctpl-ant-select-default';
+
+Object.assign(
+  ReactAntSelect.defaultProps, 
+  { template: RctplAntSelectDefault }
+);
+```
 
 ## documentation
 - https://afeiship.github.io/react-ant-select/
