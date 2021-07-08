@@ -55,6 +55,7 @@ export default class ReactAntSelect extends Component {
     const { className, onChange, ...props } = this.props;
     return (
       <ReactList
+        allowEmpty
         nodeName={Select}
         data-component={CLASS_NAME}
         onChange={this.handleChange}

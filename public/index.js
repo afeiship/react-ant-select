@@ -35,12 +35,19 @@ class App extends React.Component {
       <ReactDemokit
         className="p-3 app-container"
         url="https://github.com/afeiship/react-ant-select">
+        <h1>Has value:</h1>
         <ReactAntSelect
           template={Tpl1}
           items={items}
           onChange={this.handleChange}
         />
-        <ReactAntSelect items={items2} onChange={this.handleChange} />
+        <ReactAntSelect
+          template={Tpl1}
+          items={items2}
+          onChange={this.handleChange}
+        />
+        <h1>Select is empty</h1>
+        <ReactAntSelect items={[]} onChange={this.handleChange} />
       </ReactDemokit>
     );
   }
