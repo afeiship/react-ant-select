@@ -18,7 +18,7 @@ export default class ReactAntSelect extends Component {
     /**
      * Default value.
      */
-    value: PropTypes.object,
+    value: PropTypes.any,
     /**
      * Placeholder.
      */
