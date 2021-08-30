@@ -15,7 +15,7 @@ npm install -S @jswork/react-ant-select
 | Name        | Type   | Required | Default  | Description                           |
 | ----------- | ------ | -------- | -------- | ------------------------------------- |
 | className   | string | false    | -        | The extended className for component. |
-| value       | object | false    | -        | Default value.                        |
+| value       | any    | false    | -        | Default value.                        |
 | placeholder | string | false    | '请选择' | Placeholder.                          |
 | items       | array  | false    | []       | The data source.                      |
 | template    | func   | false    | noop     | The data item template.               |
