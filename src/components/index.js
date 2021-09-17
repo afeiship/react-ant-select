@@ -4,6 +4,7 @@ import { Select } from 'antd';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import RctplAntSelect from '@jswork/rctpl-ant-select-default';
 
 const CLASS_NAME = 'react-ant-select';
 
@@ -41,7 +42,7 @@ export default class ReactAntSelect extends Component {
     items: [],
     placeholder: '请选择',
     onChange: noop,
-    template: noop
+    template: RctplAntSelect
   };
 
   handleChange = (inValue) => {
