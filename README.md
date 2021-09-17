@@ -12,14 +12,14 @@ npm install -S @jswork/react-ant-select
 ```
 
 ## properties
-| Name        | Type   | Required | Default  | Description                           |
-| ----------- | ------ | -------- | -------- | ------------------------------------- |
-| className   | string | false    | -        | The extended className for component. |
-| value       | any    | false    | -        | Default value.                        |
-| placeholder | string | false    | '请选择' | Placeholder.                          |
-| items       | array  | false    | []       | The data source.                      |
-| template    | func   | false    | noop     | The data item template.               |
-| onChange    | func   | false    | noop     | The change handler.                   |
+| Name        | Type   | Required | Default        | Description                           |
+| ----------- | ------ | -------- | -------------- | ------------------------------------- |
+| className   | string | false    | -              | The extended className for component. |
+| value       | any    | false    | -              | Default value.                        |
+| placeholder | string | false    | '请选择'       | Placeholder.                          |
+| items       | array  | false    | []             | The data source.                      |
+| template    | func   | false    | RctplAntSelect | The data item template.               |
+| onChange    | func   | false    | noop           | The change handler.                   |
 
 
 ## usage
